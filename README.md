@@ -36,10 +36,13 @@ The structures were rigorously tested on a Debian Linux environment (compiled wi
 2. Navigate to the project directory and compile the source files using `g++`:
    bash
    g++ main.cpp NonSortedArray.cpp SortedArray.cpp BinarySearchTree.cpp AVLTree.cpp HashTable.cpp -o datastructures
-   
+     
 3. Ensure an `input.txt` file containing the text data is in the same directory.
 4. Run the executable:
    bash
    ./datastructures
    
    *(The program will automatically generate `output.txt` with the benchmarking results.)*
+   
+##  Contributors (2)
+This project was developed collaboratively as part of the Data Structures course at the Aristotle University of Thessaloniki (AUTH).
