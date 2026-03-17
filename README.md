@@ -1,48 +1,82 @@
 # Data Structures Performance Benchmarking
 
-This project implements and evaluates the performance of multiple data structures from scratch in **C++**. The primary goal is to analyze and benchmark the **construction time** and **search efficiency** of each structure using large textual datasets (up to 500MiB).
+This project implements and evaluates the performance of multiple fundamental data structures in C++.
+The goal is to analyze their behavior in terms of construction time and search efficiency using large textual datasets.
 
-##  Data Structures Implemented
+## Project Overview
 
-The following data structures were custom-built without relying on external libraries for their core mechanics:
+The application reads data from a text file, inserts it into different data structures, and performs search operations to compare their performance.
 
-- **Unsorted Array:** Dynamic memory allocation with custom array resizing.
-- **Sorted Array:** Implements Binary Search for efficient lookups.
-- **Binary Search Tree (BST):** Standard implementation with recursive insertion and search.
-- **AVL Tree:** Self-balancing BST featuring algorithmic L, R, LR, and RL rotations to maintain an optimal height balance.
-- **Hash Table:** Uses Open Addressing with Double Hashing for collision resolution, and dynamic rehashing (doubling the table size to the next prime number) when the load factor exceeds 0.5.
+All data structures are implemented from scratch without relying on external libraries for their core functionality.
 
-##  Performance Evaluation & Results
+## Data Structures Implemented
 
-The structures were rigorously tested on a Debian Linux environment (compiled with `g++`). We measured the time required to build the structures and perform 1,000 random search queries. 
+* **Unsorted Array**
+  Dynamic array with manual memory management and sequential search.
 
-*Key insights from processing a **10MiB** text file:*
-- The **Hash Table** vastly outperformed the others, taking only `~0.93s` to create and `~0.0005s` to complete the search operations.
-- The **AVL Tree** and **BST** constructed the datasets in `~6.2s` and `~6.7s` respectively, offering highly efficient `~0.002s` search times.
-- The **Unsorted Array** struggled with construction time (`~1.2 hours`) due to the massive number of sequential comparisons required during insertion to check for duplicates.
+* **Sorted Array**
+  Maintains ordered elements and supports Binary Search for lookups.
 
-##  Technologies Used
+* **Binary Search Tree (BST)**
+  Standard tree structure with recursive insertion and search operations.
 
-- **Language:** C++
-- **Profiling:** `std::chrono` library for high-resolution performance benchmarking.
-- **Core Concepts:** Object-Oriented Programming (OOP), Memory Management, Algorithmic Complexity, Double Hashing, Tree Rotations.
+* **AVL Tree**
+  Self-balancing binary search tree using rotations (LL, RR, LR, RL) to maintain height balance.
 
-##  How to Run
+* **Hash Table**
+  Uses open addressing with double hashing for collision resolution and dynamic resizing based on load factor.
+
+## Performance Evaluation
+
+The program benchmarks each data structure by:
+
+* Measuring the time required to construct each structure from input data
+* Performing multiple search queries on the stored elements
+* Recording execution times using high-resolution timing tools
+
+The experiments are designed to highlight differences in performance and scalability between data structures.
+
+## Technologies Used
+
+* **C++** – Core implementation
+* **std::chrono** – High-resolution timing for benchmarking
+* **OOP Concepts** – Encapsulation and modular design
+* **Algorithms & Data Structures** – Trees, hashing, searching
+
+## How to Run
 
 1. Clone the repository:
-   bash
-   git clone https://github.com/eleniarvan/data-structures-search-performance-comparison.git
-   
-2. Navigate to the project directory and compile the source files using `g++`:
-   bash
-   g++ main.cpp NonSortedArray.cpp SortedArray.cpp BinarySearchTree.cpp AVLTree.cpp HashTable.cpp -o datastructures
-     
-3. Ensure an `input.txt` file containing the text data is in the same directory.
-4. Run the executable:
-   bash
-   ./datastructures
-   
-   *(The program will automatically generate `output.txt` with the benchmarking results.)*
-   
-##  Contributors (2)
-This project was developed collaboratively as part of the Data Structures course at the Aristotle University of Thessaloniki (AUTH).
+
+```bash
+git clone https://github.com/eleniarvan/data-structures-search-performance-comparison.git
+```
+
+2. Navigate to the project directory and compile:
+
+```bash
+g++ main.cpp NonSortedArray.cpp SortedArray.cpp BinarySearchTree.cpp AVLTree.cpp HashTable.cpp -o datastructures
+```
+
+3. Make sure an `input.txt` file exists in the same directory.
+
+4. Run the program:
+
+```bash
+./datastructures
+```
+
+The program will generate an `output.txt` file containing the benchmarking results.
+
+## Notes
+
+This project was developed as part of a university assignment for the Data Structures course at the Aristotle University of Thessaloniki (AUTH).
+
+It focuses on understanding:
+
+* Trade-offs between different data structures
+* Practical performance compared to theoretical complexity
+* Efficient handling of large datasets
+
+## Contributors (2)
+
+Developed collaboratively as part of coursework.
